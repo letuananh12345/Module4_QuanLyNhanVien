@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <title>Manage Product</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+</head>
+<body>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-11 " style="border-style:ridge">
+            <h3>Employee Management</h3>
+            <h3><a href="/create" class="btn btn-success">Add New</a></h3>
+            <table class="table  table-bordered">
+                <thead>
+                <tr>
+                    <th>Employee Code</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Salary</th>
+                    <th>Branch</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="em:${listEmployee}">
+                    <td th:text="${em.employeeCode}"></td>
+                    <td><a th:href="@{/employeeDetail/{id}(id=${em.id})}" th:text="${em.name}"></a></td>
+                    <td th:text="${em.age}"></td>
+                    <td th:text="${em.salary}"></td>
+                    <td th:text="${em.branch.name}"></td>
+
+
+                    <td>
+                        <a th:href="@{/edit(id=${em.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/delete/{id}(id=${em.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+
+</html>
+
+
+
+

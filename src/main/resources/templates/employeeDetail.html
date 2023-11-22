@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <title>Manage Product</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            label {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+
+</head>
+<body>
+<br><br>
+<div class="container">
+    <div class="col-sm-3"></div>
+    <div class="row">
+
+        <div class="col-sm-5 " style="border-style:ridge" th:object="${employeeDetail}">
+            <h3>Employee Detail</h3><br>
+
+
+
+
+            <label>Employee Code :</label>
+            <span th:text="${employeeDetail.employeeCode}"></span><br>
+
+            <label>Name :</label>
+            <span th:text="${employeeDetail.name}"></span><br>
+
+            <label>Age :</label>
+            <span th:text="${employeeDetail.age}"></span><br>
+
+            <label>Salary :</label>
+            <span th:text="${employeeDetail.salary}"></span><br>
+
+            <label>Branch :</label>
+            <span th:text="${employeeDetail.branch.name}"></span><br>
+
+            <a href="/home" class="btn btn-primary ">Back to list</a>
+
+        </div>
+
+    </div>
+    <div class="col-sm-4"></div>
+
+
+</div>
+
+
+</body>
+</html>
+
+
+
+

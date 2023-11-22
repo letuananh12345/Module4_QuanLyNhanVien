@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <title>Manage Product</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <style>
+            .select-css {
+                display: block;
+                font-size: 15px;
+                font-weight: 700;
+                line-height: 1;
+                padding: .6em 1.4em .5em .8em;
+                width: 94%;
+                max-width: 100%;
+            }
+
+            .select-css option {
+                font-weight: 122;
+                font-size: 16px;
+
+            }
+
+            input {
+                width: 94%;
+                padding: 5px;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical;
+                font-size: 16px;
+            }
+
+            label {
+                font-size: 19px;
+            }
+
+            button {
+                width: 15%;
+            }
+        </style>
+    </head>
+<body>
+<br>
+
+<div class="container">
+
+    <form method="post" th:object="${newEmployee}">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-5" style="border-style:solid">
+                <h2>Add Employee</h2><br>
+
+
+
+
+                <label> Employee Code</label><br>
+                <span style="color: red" th:if="${#fields.hasErrors('employeeCode')}"
+                      th:errors="*{employeeCode} "></span>
+                <input th:field="*{employeeCode}"
+                       placeholder="Enter Employee Code (Any 5 characters, no special characters)">
+
+
+                <label>Name</label><br>
+                <span style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                <input th:field="*{name}" placeholder="Enter Name (Do not leave blank)" class="container-xl">
+
+
+                <label>Age</label><br>
+                <span style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+                <input th:field="*{age}" class="container-xl">
+
+
+                <label>Salary</label><br>
+                <span style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></span>
+                <input th:field="*{salary}" class="container-xl">
+
+
+                <label>Branch</label>
+                <select th:field="*{branch}" class="select-css">
+                    <option th:each="br:${listBranch}" th:value="${br.id}" th:text="${br.name}"></option>
+                </select><br>
+
+                <button type="submit" class="btn btn-primary" onclick="check()" >Save  </button>
+
+
+                <a href="/home" class="btn btn-success " >Back</a>
+
+
+            </div>
+            <div class="col-sm-4"></div>
+
+        </div>
+
+    </form>
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
